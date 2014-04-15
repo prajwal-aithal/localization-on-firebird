@@ -292,30 +292,27 @@ void UpdateRightPWM(unsigned int vel){
 //This function is UART0 Receive ISR. This function is called whenever UART0 receives any data
 void  __irq IRQ_UART0(void){  
 	int k;
-	Temp = U0RBR;     
-	if(Temp == 0x48){ 					//ASCII value of H
-		BUZZER_ON();  //buzzer on
+	Temp = U0RBR; 
+
+	// The next piece of code is to handle the signal passed. The values compared are ASCII values of the signal passed.    
+	if(Temp == 0x68){ 					//ASCII value of h. Buzzer is switched on.
+		BUZZER_ON();
 	}
-	if(Temp == 0x69){ 					//ASCII value of i
+	if(Temp == 0x69){ 					//ASCII value of i. Buzzer is switched off.
 		BUZZER_OFF();
 	} 
 
-	if(Temp == 0x61){ 					//ASCII value of a
+	if(Temp == 0x63){ 					//ASCII value of c. Sends the bot into command mode.
 		UART1_SendStr("$$$");
 		DelaymSec11(500);
 	}
 
-	if(Temp == 0x62){ 					//ASCII value of b
+	if(Temp == 0x62){ 					//ASCII value of b. Asks for the RSSI values from the wifly shield.
 		UART1_SendStr("show rssi");
 		UART1_SendByte(0xD);
 	}
 
-	if(Temp == 0x63){ 					//ASCII value of c
-		UART1_SendStr("scan");
-		UART1_SendByte(0xD);
-	}
-
-	if(Temp == 0x64){ 					//ASCII value of d
+	if(Temp == 0x65){ 					//ASCII value of e. Connects to ERTS_1.
 		UART1_SendStr("set wlan0 passphrase local@erts123");
 		UART1_SendByte(0xD);
 		DelaymSec11(500);
@@ -323,7 +320,7 @@ void  __irq IRQ_UART0(void){
 		UART1_SendByte(0xD);
 	}
 
-	if(Temp == 0x65){ 					//ASCII value of e
+	if(Temp == 0x66){ 					//ASCII value of f. Connects to ERTS_2.
 		UART1_SendStr("set wlan0 passphrase local@erts123");
 		UART1_SendByte(0xD);
 		DelaymSec11(500);
@@ -331,7 +328,7 @@ void  __irq IRQ_UART0(void){
 		UART1_SendByte(0xD);
 	}
 
-	if(Temp == 0x66){ 					//ASCII value of f
+	if(Temp == 0x67){ 					//ASCII value of g. Connects to ERTS_3.
 		UART1_SendStr("set wlan0 passphrase local@erts123");
 		UART1_SendByte(0xD);
 		DelaymSec11(500);
@@ -339,7 +336,27 @@ void  __irq IRQ_UART0(void){
 		UART1_SendByte(0xD);
 	}
 
-	if(Temp == 0x67){ 					//ASCII value of g
+	if(Temp == 0x77){					//ASCII value of w. Moves the bot in the forward direction.
+		Forward();
+	}
+
+	if(Temp == 0x73){					//ASCII value of s. Moves the bot in the backward direction.
+		Back();
+	}
+
+	if(Temp == 0x61){					//ASCII value of a. Moves the bot in the left direction.
+		Left();
+	}
+
+	if(Temp == 0x64){					//ASCII value of d. Moves the bot in the right direction.
+		Right();
+	}
+
+	if(Temp == 0x71){					//ASCII value of q. Stops the bot.
+		Stop();
+	}
+
+	if(Temp == 0x48){					//ASCII value of H. Pings server for testing purposes.
 		UART1_SendStr("ping mars.cse.iitb.ac.in");
 		UART1_SendByte(0xD);
 		DelaymSec11(500);

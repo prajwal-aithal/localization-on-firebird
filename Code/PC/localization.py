@@ -103,9 +103,9 @@ def get_best_avg(rssi_arr):
     min_variance_3, pos_3 = get_best_range(rssi_arr,3)
     return np.mean(rssi_arr[pos_3:pos_3+3])
 
-# Function to connect to the given router and return the RSSI value. d - ERTS_1, e - ERTS_2, f - ERTS_3
+# Function to connect to the given router and return the RSSI value. e - ERTS_1, f - ERTS_2, g - ERTS_3
 def connect_get_RSSI(x):
-    ser.write('a')
+    ser.write('c')
     ser.write(x)
     line = ""    
     while ("GW=" not in line):
@@ -114,11 +114,11 @@ def connect_get_RSSI(x):
         while(c != '\n'):
             line = line + c
             c = ser.read()
-    ser.write('a')
+    ser.write('c')
     time.sleep(0.5)
     c = ser.read()
     if(c == '$'):
-            ser.write('g')
+            ser.write('H')
             time.sleep(0.5)
     ser.write('b')
     line = ""
@@ -142,9 +142,9 @@ def get_RSSI():
     rssi3_arr = []
     # Get the RSSI values for different routers count number of times.
     for i in range(0,observation_count,1):
-        rssi1_arr.append(connect_get_RSSI('d'))
-        rssi2_arr.append(connect_get_RSSI('e'))
-        rssi3_arr.append(connect_get_RSSI('f'))
+        rssi1_arr.append(connect_get_RSSI('e'))
+        rssi2_arr.append(connect_get_RSSI('f'))
+        rssi3_arr.append(connect_get_RSSI('g'))
         print rssi1_arr, rssi2_arr, rssi3_arr
     rssi_final = []
     for i in range(0,observation_count,1):
@@ -192,7 +192,7 @@ nbmodel.fit(X, y)
 
 # Initializes the serial communication on port 4.
 ser = serial.Serial(4)
-ser.write('a')
+ser.write('c')
 c = ser.read()
 print c
 # Check if we are in command mode already

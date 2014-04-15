@@ -26,4 +26,4 @@ How to run this code on the PC:
 
 License:
 ---
-Refer to [LICENSE](../LICENSE)
+Refer to [LICENSE](../../LICENSE)

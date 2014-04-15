@@ -19,3 +19,7 @@ How to get this code working:
 1. Create a new project on Keil.
 2. Add the files in this directory to the project.
 3. Build the project and run the code on the bot.
+
+LICENSE
+---
+Find the LICENSE [here](../../LICENSE)
