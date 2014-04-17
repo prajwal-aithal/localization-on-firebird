@@ -1,4 +1,3 @@
-Localization using Multiple Sensors
 README for Bot (FB5) code
 ===================
 
