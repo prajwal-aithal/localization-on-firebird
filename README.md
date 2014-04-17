@@ -18,7 +18,6 @@ The repository has been organized as follows.
 
 1. Code/ - contains the code and the needed READMEs.
 2. Documentation/ - contains the final report and a presentation on the project.
-3. Videos/ - contains the screencast and video demo of the project.
 
 Youtube URLS
 =========
