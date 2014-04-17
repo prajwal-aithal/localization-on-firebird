@@ -5,10 +5,12 @@ This is the repository hosting code and documentation for the project "Localizat
 
 Contributors
 =============
-1. [T Ashok Kumar](https://github.com/talaashok)
-2. [Prajwal A N](https://www.github.com/prajwal-aithal)
-3. [Karthik KSS](https://www.facebook.com/ksskarthik)
-4. [Vamsi Krishna](https://www.facebook.com/vamsi77)
+Team Name - TU-01  
+
+1. [T Ashok Kumar](https://github.com/talaashok) - 100050083
+2. [Prajwal A N](https://www.github.com/prajwal-aithal) - 100050085
+3. [Karthik KSS](https://www.facebook.com/ksskarthik) - 100050072
+4. [Vamsi Krishna](https://www.facebook.com/vamsi77) - 100050080
 
 Organization
 =============

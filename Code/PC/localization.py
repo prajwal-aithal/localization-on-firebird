@@ -55,7 +55,7 @@ def init_print():
     print "a - Move left"
     print "s - Move back"
     print "d - Move right"
-    print "q - Move stop"
+    print "q - Stop"
     print "l - Get current coordinates. The bot needs to be stationary (stopped) for this control to work"
     print "z - Quit the system"
     print "=================================================================================="
